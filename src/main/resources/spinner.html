@@ -1,0 +1,70 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>The Spinner</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    function search() {
+      //setTimeout(function (){$("#spinner").show()},500);
+      $("#spinner").show();
+      const slow = Math.floor(Math.random() * 10) >= 0;
+      var minWait, maxWait;
+      if (slow) {
+        minWait = 1000;
+        maxWait = 5000 - minWait;
+      } else {
+        minWait = 1;
+        maxWait = 5 - minWait;
+      }
+
+      const waitMs = minWait + Math.floor(Math.random() * maxWait);
+      setTimeout(load, waitMs)
+    }
+
+    function load() {
+      $.get("http://localhost:8082/data.json?" + Math.random(), function (data, status) {
+        console.log(data + ":" + status)
+      })
+      $("#spinner").remove();
+      $("#needle").text("").append("<span class='text-danger'>Иголка</span>");
+    }
+  </script>
+</head>
+<body>
+
+<div class="container" id="container">
+
+  <p class="row"></p>
+  <div class="row">
+    <button class="btn btn-primary" id="search" onclick="search()">Искать</button>
+  </div>
+  <h2 class="h2">Стог сена</h2>
+  <div class="row" id="spinner" style="display:none">Ищу... <img width="100" height="100" src="./spinner.svg"></div>
+
+  <table class="table table-bordered" id="data">
+    <tr>
+      <th>Предмет</th>
+      <th>Количество</th>
+    </tr>
+    <tr>
+      <td><input type="text" placeholder="Фильтр..."></td>
+      <td><input type="text" placeholder="Фильтр..."></td>
+    </tr>
+    <tr>
+      <td>Соломинка</td>
+      <td>100500</td>
+    </tr>
+    <tr>
+      <td id="needle">Грабли</td>
+      <td>1</td>
+    </tr>
+  </table>
+  <div class="row">Страница 1 из 8 <span><a href="">Следующая страница</a></span></div>
+
+</div>
+
+
+</body>
+</html>
