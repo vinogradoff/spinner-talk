@@ -32,7 +32,7 @@ public class Goldfish {
 
     @BeforeEach
     void openPage() {
-        open("http://localhost:8082/spinner.html");
+        open("http://localhost:8082/spinner_fast.html");
     }
 
     @RepeatedTest(10)
@@ -40,8 +40,7 @@ public class Goldfish {
         responded = false;
         $("#search").click();
         while (!responded) {
-            System.out.println("20 ms");
-            sleep(20);
+            sleep(1);
         }
         $("#data").shouldHave(text("Иголка"), Duration.ofMillis(1));
 

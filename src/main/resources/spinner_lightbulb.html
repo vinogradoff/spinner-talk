@@ -9,14 +9,14 @@
     function search() {
       //setTimeout(function (){$("#spinner").show()},200);
       $("#spinner").show();
-      const slow = Math.floor(Math.random() * 10) >= 4;
+      const slow = Math.floor(Math.random() * 10) >= 5;
       var minWait, maxWait;
       if (slow) {
         minWait = 1000;
-        maxWait = 5000 - minWait;
+        maxWait = 4000 - minWait;
       } else {
         minWait = 1; //201-205
-        maxWait = 5 - minWait;
+        maxWait = 4 - minWait;
       }
 
       const waitMs = minWait + Math.floor(Math.random() * maxWait);

@@ -34,7 +34,7 @@ public class Elephant {
         } catch (UIAssertionError exception) {
             System.out.println("Почему-то он не появился. Разобраться потом");
         }
-        $("#spinner").shouldBe(hidden, Duration.ofSeconds(8));
+        $("#spinner").shouldBe(hidden, Duration.ofSeconds(5));
         $("#data").shouldHave(text("Иголка"));
     }
 }

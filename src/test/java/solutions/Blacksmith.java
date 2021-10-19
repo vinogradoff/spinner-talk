@@ -22,12 +22,12 @@ public class Blacksmith {
 
     @BeforeEach
     void openPage() {
-        open("http://localhost:8082/spinner_second_page.html");
+        open("http://localhost:8082/spinner_fast.html");
     }
 
     @RepeatedTest(10)
     void testOfTable() {
         $("#search").click();
-        $("#data").shouldHave(text("Иголка"), Duration.ofSeconds(8));
+        $("#data").shouldHave(text("Иголка"),Duration.ofSeconds(5));
     }
 }

@@ -20,7 +20,7 @@ public class Vaccine {
 
     @BeforeEach
     void openPage() {
-        open("http://localhost:8082/spinner.html");
+        open("http://localhost:8082/spinner_fast.html");
     }
 
     @RepeatedTest(10)

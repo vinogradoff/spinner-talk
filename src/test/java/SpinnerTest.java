@@ -22,9 +22,8 @@ public class SpinnerTest {
     void testOfTable() {
         $("#search").click();
         $("#spinner").shouldBe(visible);
-        $("#spinner").shouldBe(hidden, Duration.ofSeconds(8));
+        $("#spinner").shouldBe(hidden,Duration.ofSeconds(5000));
         $("#data").shouldHave(text("Иголка"));
-
 
     }
 }
