@@ -40,7 +40,8 @@ public class Goldfish {
         responded = false;
         $("#search").click();
         while (!responded) {
-            sleep(1);
+            System.out.println("20ms");
+            sleep(20);
         }
         $("#data").shouldHave(text("Иголка"), Duration.ofMillis(1));
 
