@@ -29,8 +29,9 @@ public class PsychoLightbulb {
     @RepeatedTest(10)
     void testOfTable() {
         $("#search").click();
-        $("#spinner").should(exist); // visible or not visible
         $("#spinner").should(hidden, Duration.ofSeconds(5));
         $("#data").shouldHave(text("Иголка"), Duration.ofMillis(1));
+
+        //$("#spinner").should(exist); // visible or not visible
     }
 }
